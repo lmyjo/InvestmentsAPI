@@ -1,3 +1,6 @@
-const helloworld = require('./helloworld');
+const owners = require('./owners');
+const projects = require('./projects');
+const operaciones = require('./operaciones');
+const evaluaciones = require('./evaluaciones');
 
-module.exports = [].concat(helloworld);
+module.exports = [].concat(projects, owners, operaciones, evaluaciones);
