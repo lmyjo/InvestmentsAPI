@@ -1,9 +1,10 @@
+require('dotenv').load();
+
 const Hapi = require('hapi');
 const inert = require('inert');
 const vision = require('vision');
 const HapiSwagger = require('hapi-swagger');
 const package = require('./package');
-const config = require('./config/config');
 const routes = require('./config/routes');
 
 const server = new Hapi.Server();
