@@ -12,8 +12,11 @@
     "debug": "~2.2.0",
     "dotenv": "^1.2.0",
     "hapi": "^11.1.2",
+    "hapi-swagger": "^3.1.1",
+    "inert": "^3.2.0",
     "morgan": "~1.5.3",
-    "serve-favicon": "~2.2.1"
+    "serve-favicon": "~2.2.1",
+    "vision": "^4.0.1"
   },
   "devDependencies": {
     "lab": "~7.3.0"
