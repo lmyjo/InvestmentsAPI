@@ -6,6 +6,6 @@ COPY . /opt/lmyjo/app/
 
 EXPOSE 3000
 
-RUN npm install --no-color
+RUN npm install --production --no-color
 
 CMD ["npm", "start"]
