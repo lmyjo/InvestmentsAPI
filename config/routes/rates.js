@@ -1,4 +1,6 @@
+"use strict";
 const handlers = require('../../lib/handlers');
+const ratesValidators = require('../../lib/validators/rates-validators');
 
 module.exports = [
   {
@@ -11,7 +13,12 @@ module.exports = [
       handler: handlers.getHandler,
       description: 'Get all the rates aviable',
       notes: 'Get a list of the rates aviable',
-      tags: ['api','rates']
+      tags: ['api','rates'],
+      plugins: {
+        'hapi-swagger': {
+          order: 5
+        }
+      }
     }
   },
   {
@@ -24,7 +31,15 @@ module.exports = [
       handler: handlers.getHandler,
       description: 'Get a rate by its ID',
       notes: 'Get a rate object using its ID',
-      tags: ['api','rates']
+      tags: ['api','rates'],
+      validate: {
+        params: ratesValidators.getRate
+      },
+      plugins: {
+        'hapi-swagger': {
+          order: 5
+        }
+      }
     }
   },
   {
@@ -37,7 +52,15 @@ module.exports = [
       handler: handlers.getHandler,
       description: 'Get the latest rate by type',
       notes: 'Get the latest rate by its type',
-      tags: ['api','rates']
+      tags: ['api','rates'],
+      validate: {
+        params: ratesValidators.getType
+      },
+      plugins: {
+        'hapi-swagger': {
+          order: 5
+        }
+      }
     }
   },
 ];
