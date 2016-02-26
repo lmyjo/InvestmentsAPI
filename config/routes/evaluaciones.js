@@ -1,4 +1,8 @@
+"use strict";
 const handlers = require('../../lib/handlers');
+const projectsValidators = require('../../lib/validators/projects-validators');
+const accessTokenValidator = require('../../lib/validators/access-token-validator');
+const evaluationsValidators = require('../../lib/validators/evaluations-validators');
 
 module.exports = [
   {
@@ -11,7 +15,17 @@ module.exports = [
       handler: handlers.getHandler,
       description: 'Get all the evaluations of a project by its ID',
       notes: 'Get a list of the evaluations of the project by its ID',
-      tags: ['api','owners']
+      tags: ['api','owners'],
+      validate: {
+        params: projectsValidators.getProjectId,
+        headers: accessTokenValidator.header,
+        query: accessTokenValidator.query
+      },
+      plugins: {
+        'hapi-swagger': {
+          order: 4
+        }
+      }
     }
   },
   {
@@ -22,9 +36,19 @@ module.exports = [
         service: 'utility'
       },
       handler: handlers.deleteHandler,
-      description: 'Delete all the evaluation',
+      description: 'Delete all the evaluations',
       notes: 'Delete all the evaluations of the project',
-      tags: ['api','owners']
+      tags: ['api','owners'],
+      validate: {
+        params: projectsValidators.getProjectId,
+        headers: accessTokenValidator.header,
+        query: accessTokenValidator.query
+      },
+      plugins: {
+        'hapi-swagger': {
+          order: 4
+        }
+      }
     }
   },
   {
@@ -37,7 +61,17 @@ module.exports = [
       handler: handlers.getHandler,
       description: 'Get an evaluation from the project',
       notes: 'GET an evaluation of a project from its ID',
-      tags: ['api','owners']
+      tags: ['api','owners'],
+      validate: {
+        params: evaluationsValidators.getEvaluation,
+        headers: accessTokenValidator.header,
+        query: accessTokenValidator.query
+      },
+      plugins: {
+        'hapi-swagger': {
+          order: 4
+        }
+      }
     }
   },
   {
@@ -50,7 +84,17 @@ module.exports = [
       handler: handlers.deleteHandler,
       description: 'Delete an evaluation from the project',
       notes: 'Delete an evaluation of a project from its ID',
-      tags: ['api','owners']
+      tags: ['api','owners'],
+      validate: {
+        params: evaluationsValidators.getEvaluation,
+        headers: accessTokenValidator.header,
+        query: accessTokenValidator.query
+      },
+      plugins: {
+        'hapi-swagger': {
+          order: 4
+        }
+      }
     }
   },
   {
@@ -63,7 +107,17 @@ module.exports = [
       handler: handlers.getHandler,
       description: 'Get the last evaluation from the project',
       notes: 'Get the last evaluation of a project from its ID',
-      tags: ['api','owners']
+      tags: ['api','owners'],
+      validate: {
+        params: projectsValidators.getProjectId,
+        headers: accessTokenValidator.header,
+        query: accessTokenValidator.query
+      },
+      plugins: {
+        'hapi-swagger': {
+          order: 4
+        }
+      }
     }
   },
   {
@@ -76,7 +130,17 @@ module.exports = [
       handler: handlers.postHandler,
       description: 'Evaluate the project',
       notes: 'Create an evaluation for the project',
-      tags: ['api','owners']
+      tags: ['api','owners'],
+      validate: {
+        params: projectsValidators.getProjectId,
+        headers: accessTokenValidator.header,
+        query: accessTokenValidator.query
+      },
+      plugins: {
+        'hapi-swagger': {
+          order: 4
+        }
+      }
     }
   }
 ]

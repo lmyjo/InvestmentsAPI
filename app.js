@@ -13,15 +13,7 @@ const swaggerOptions = {
   info: {
     title: 'Investments API',
     version: package.version
-  },
-  basePath: '/api/',
-  schemes: ['https'],
-  tags: [
-    {
-      name: 'api/owners',
-      description: 'Handling of owners of projects'
-    }
-  ]
+  }
 };
 
 server.connection({
